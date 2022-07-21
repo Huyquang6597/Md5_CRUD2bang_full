@@ -59,7 +59,7 @@ export class ProductEditComponent implements OnInit {
       }
     };
     this.productService.edit(id, this.obj).subscribe(() => {
-      this.router.navigate(['']);
+      this.router.navigate(['home']);
       alert('Cập nhật thành công');
     }, error => {
       console.log(error);

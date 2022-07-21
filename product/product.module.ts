@@ -11,10 +11,10 @@ import {NanavbarComponent} from "../nanavbar/nanavbar.component";
 
 
 const routes: Routes = [
-  {path: 'create', component: ProductCreateComponent},
-  {path: '', component: ProductListComponent},
-  {path: 'edit/:id', component: ProductEditComponent},
-  {path: 'delete/:id', component: ProductDeleteComponent},
+  {path: 'home/create', component: ProductCreateComponent},
+  {path: 'home', component: ProductListComponent},
+  {path: 'home/edit/:id', component: ProductEditComponent},
+  {path: 'home/delete/:id', component: ProductDeleteComponent},
 ]
 
 @NgModule({

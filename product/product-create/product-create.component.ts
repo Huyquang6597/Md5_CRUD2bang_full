@@ -42,7 +42,7 @@ export class ProductCreateComponent implements OnInit {
     this.productService.save(this.obj).subscribe((data) => {
       alert("Them thanh cong");
       this.obj=data;
-      this.router.navigate([''])
+      this.router.navigate(['home'])
     },error=>{
       alert('Loi')
     })
