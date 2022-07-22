@@ -32,8 +32,8 @@ export class ProductService {
     return this.httpClient.delete<Product>(this.API + `/${id}`);
   }
 
-  searchByName(name:string) : Observable<Product[]> {
-    return this.httpClient.get<Product[]>(this.API + `/search-by-name?name=${name}`);
+  searchByName(name:any) : Observable<Product> {
+    return this.httpClient.get<Product>(this.API + `/search-by-name?name=${name}`);
   }
 
   getByCategoryId(id: number): Observable<Product>{

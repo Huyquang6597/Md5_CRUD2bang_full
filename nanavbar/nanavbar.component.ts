@@ -12,6 +12,7 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
   styleUrls: ['./nanavbar.component.css']
 })
 export class NanavbarComponent implements OnInit {
+  name: any
   productForm: FormGroup = new FormGroup({
     name: new FormControl(''),
     categoryId: new FormControl(''),
@@ -53,8 +54,8 @@ export class NanavbarComponent implements OnInit {
     })
   }
 
-  searchByName() {
-    const name = this.productForm.value.name;
+  searchByName(name: any) {
+    // const name = this.productForm.value.name;
     this.productService.searchByName(name).subscribe((data) => {
       console.log(data)
       this.listProduct = data;
@@ -102,6 +103,16 @@ export class NanavbarComponent implements OnInit {
     })
   }
 
+  submit(){
+    console.log(this.productForm.value)
+    this.obj = {
+      name: this.form.value.name,
+      price: this.form.value.price,
+      category: {
+        id: this.form.value.category
+      }
+    }
+  }
 
 
 }

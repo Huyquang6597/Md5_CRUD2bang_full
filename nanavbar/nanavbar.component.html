@@ -1,92 +1,3 @@
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--<div class="col-12">-->
-
-
-<!--  <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-<!--    <a class="navbar-brand" href="#">Navbar</a>-->
-<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--      <span class="navbar-toggler-icon"></span>-->
-<!--    </button>-->
-
-<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-<!--      <ul class="navbar-nav mr-auto">-->
-<!--        <li class="nav-item active">-->
-<!--          <a routerLink="">Home</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--          <a routerLink="create" data-toggle="modal" data-target="#exampleModal" >Add product </a>-->
-<!--        </li>-->
-<!--        <li class="nav-item dropdown">-->
-<!--          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">-->
-<!--            Dropdown-->
-<!--          </a>-->
-<!--          <div class="dropdown-menu">-->
-<!--            <a class="dropdown-item" href="#">Action</a>-->
-<!--            <a class="dropdown-item" href="#">Another action</a>-->
-<!--            <div class="dropdown-divider"></div>-->
-<!--            <a class="dropdown-item" href="#">Something else here</a>-->
-<!--          </div>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--          <form [formGroup]="productForm" (ngSubmit)="searchByPrice()">-->
-<!--          <input class="form-control mr-sm-2" type="text" placeholder="number 1" aria-label="Search" formControlName="from">-->
-<!--          <input class="form-control mr-sm-2" type="text" placeholder="number 2" aria-label="Search" formControlName="to">-->
-<!--          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-<!--          </form>-->
-<!--        </li>-->
-<!--&lt;!&ndash;        <li class="nav-item mt-1" >&ndash;&gt;-->
-<!--&lt;!&ndash;          <a routerLink="create" data-toggle="modal" data-target="#exampleModal" >Add product </a>&ndash;&gt;-->
-<!--&lt;!&ndash;        </li>&ndash;&gt;-->
-<!--      </ul>-->
-<!--      <form class="form-inline my-2 my-lg-0" [formGroup]="productForm" (ngSubmit)="searchByName()">-->
-<!--        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" formControlName='name'>-->
-<!--        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"  >Search</button>-->
-<!--      </form>-->
-<!--    </div>-->
-<!--  </nav>-->
-<!--</div>-->
-<!--    <div class="col-3 mt-3">-->
-<!--      <h3 style="text-align: center">Danh sách category</h3>-->
-<!--      <form [formGroup]="productForm" (click)="searchByCategoryId()">-->
-<!--        <select formControlName = "categoryId">-->
-<!--          <option *ngFor="let c of listCategory" [value]="c.id">-->
-<!--            {{c.name}}-->
-<!--          </option>-->
-<!--        </select>-->
-<!--      </form>-->
-
-<!--    </div>-->
-<!--    <div class="col-9 mt-3"  >-->
-<!--      <h3 style="text-align: center">Danh sách sản phẩm</h3>-->
-<!--      <table class="table table-striped">-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--          <th scope="col">STT</th>-->
-<!--          <th scope="col">Name</th>-->
-<!--          <th scope="col">Price</th>-->
-<!--          <th scope="col">Category</th>-->
-<!--          <th scope="col">Edit</th>-->
-<!--          <th scope="col">Xóa</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr  *ngFor="let pro of listProduct ; index as i">-->
-<!--          <th scope="row">{{i+1}}</th>-->
-<!--          <td>{{pro.name}}</td>-->
-<!--          <td>{{pro.price}}</td>-->
-<!--          <td>{{pro.category.name}}</td>-->
-<!--          <td><a [routerLink]="['edit',pro.id]"  data-toggle="modal" data-target="#exampleModal1" class="btn btn-primary" >Edit</a></td>-->
-<!--          <td><a [routerLink]="['delete',pro.id]" data-toggle="modal" data-target="#exampleModal2" class="btn btn-danger">Delete</a></td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--      </table>-->
-<!--    </div>-->
-
-<!--  </div>-->
-<!--</div>-->
-
-
 
 <div class="container">
   <div class="row">
@@ -134,11 +45,15 @@
             </form>
           </ul>
 
-          <form class="form-inline my-2 my-lg-0" [formGroup]="productForm" (ngSubmit)="searchByName()">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search Name" aria-label="Search"
-                   id="search-name" formControlName='name'>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+<!--          <form class="form-inline my-2 my-lg-0" [formGroup]="productForm" (ngSubmit)="searchByName(name)">-->
+<!--            <input class="form-control mr-sm-2" type="search" placeholder="Search Name" aria-label="Search" [(ngModel)]="name" )]>-->
+<!--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+<!--          </form>-->
+          <div class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Nhap Ten San Pham" aria-label="Search" [(ngModel)] = "name">
+            <button class="btn btn-outline-success my-2 my-sm-0"  (click)="searchByName(name)">Search</button>
+          </div>
+
 
         </div>
       </nav>
@@ -190,5 +105,51 @@
   </div>
 </div>
 
+<!-- Modal Create -->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="exampleModalLabel">Tạo sản phẩm mới</h5>-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+
+<!--        <form [formGroup]="productForm" (ngSubmit)="submit()">-->
+<!--          <label> Tên sản phẩm </label>-->
+<!--          <input type="text" name="name" class="form-control" formControlName="name">-->
+<!--          <label> Giá sản phẩm </label>-->
+<!--          <input type="number" name="price" class="form-control" formControlName="price">-->
+<!--          <label> Loại </label>-->
+<!--          <select type="text" formControlName="categoryId" class="form-control">-->
+<!--            <option *ngFor="let category of listCategory" [value]="category.id">-->
+<!--              {{category.name}}-->
+<!--            </option>-->
+<!--          </select>-->
+<!--          <div class="modal-footer">-->
+<!--            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Lưu</button>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
 
+
+
+<!--&lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">-->
+<!--  Launch demo modal-->
+<!--</button>-->
+
+
+
+
+
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" routerLink="createProduct">-->
+<!--  Them San Pham-->
+<!--</button>-->

@@ -13,12 +13,12 @@ import { CategoryService } from 'src/app/service/category.service';
 })
 export class ProductCreateComponent implements OnInit {
   form = new FormGroup({
-
     name: new FormControl(''),
     price : new FormControl(''),
     category: new FormControl('')
   });
   obj: any;
+
   listCategory : Category[]=[];
   constructor(private httpClient: HttpClient, private router: Router,
               private productService: ProductService,
@@ -42,10 +42,14 @@ export class ProductCreateComponent implements OnInit {
     this.productService.save(this.obj).subscribe((data) => {
       alert("Them thanh cong");
       this.obj=data;
+      // @ts-ignore
+      $('#exampleModal').modal('hide');
       this.router.navigate(['home'])
+
     },error=>{
       alert('Loi')
     })
   }
+
 
 }

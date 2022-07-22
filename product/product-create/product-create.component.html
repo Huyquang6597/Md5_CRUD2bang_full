@@ -1,14 +1,174 @@
-<!--<p>create-product-be works!</p>-->
+<!--&lt;!&ndash;<p>create-product-be works!</p>&ndash;&gt;-->
 
-<form [formGroup]="form" (submit)="add()" >
 
-  <p>Name</p>
-  <input type="text" formControlName="name" class="form-control"><br>
-  <p>Price</p>
-  <input type="number" formControlName="price" class="form-control"><br>
-  <p>Category</p>
-  <select formControlName="category" >
-    <option *ngFor="let c of listCategory" [value]="c.id">{{c.name}}</option>
-  </select>
-  <button>Create</button>
-</form>
+
+
+<!--<form [formGroup]="form" (submit)="add()" >-->
+
+<!--  <p>Name</p>-->
+<!--  <input type="text" formControlName="name" class="form-control"><br>-->
+<!--  <p>Price</p>-->
+<!--  <input type="number" formControlName="price" class="form-control"><br>-->
+<!--  <p>Category</p>-->
+<!--  <select formControlName="category" >-->
+<!--    <option *ngFor="let c of listCategory" [value]="c.id">{{c.name}}</option>-->
+<!--  </select>-->
+<!--  <button>Create</button>-->
+<!--</form>-->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tạo sản phẩm mới</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" (ngSubmit)="add()">
+          <label> Tên sản phẩm </label>
+          <input type="text" name="name" class="form-control" formControlName="name">
+          <label> Giá sản phẩm </label>
+          <input type="number" name="price" class="form-control" formControlName="price">
+          <label> Loại </label>
+          <select type="text" formControlName="category" class="form-control">
+            <option *ngFor="let category of listCategory" [value]="category.id">
+              {{category.name}}
+            </option>
+          </select>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Lưu</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="col-12">&ndash;&gt;-->
+<!--&lt;!&ndash;      <nav class="navbar navbar-expand-lg navbar-light bg-light">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="navbar-brand" href="#">Navbar</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"&ndash;&gt;-->
+<!--&lt;!&ndash;                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">&ndash;&gt;-->
+<!--&lt;!&ndash;          <span class="navbar-toggler-icon"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;        </button>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="collapse navbar-collapse" id="navbarSupportedContent">&ndash;&gt;-->
+<!--&lt;!&ndash;          <ul class="navbar-nav mr-auto">&ndash;&gt;-->
+<!--&lt;!&ndash;            <li class="nav-item active">&ndash;&gt;-->
+<!--&lt;!&ndash;              <a routerLink="/home">Danh sách sản phẩm</a>&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            </li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;              <a routerLink="/home/create" data-toggle="modal" data-target="#exampleModal" >Tạo sản phẩm mới</a>&ndash;&gt;-->
+<!--&lt;!&ndash;            </li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li class="nav-item dropdown">&ndash;&gt;-->
+<!--&lt;!&ndash;              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"&ndash;&gt;-->
+<!--&lt;!&ndash;                 aria-expanded="false">&ndash;&gt;-->
+<!--&lt;!&ndash;                Dropdown&ndash;&gt;-->
+<!--&lt;!&ndash;              </a>&ndash;&gt;-->
+<!--&lt;!&ndash;              <div class="dropdown-menu" aria-labelledby="navbarDropdown">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="dropdown-item" href="#">Action</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="dropdown-item" href="#">Another action</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="dropdown-divider"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="dropdown-item" href="#">Something else here</a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;              <a class="nav-link disabled">Disabled</a>&ndash;&gt;-->
+<!--&lt;!&ndash;            </li>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;            <form class="form-inline my-2 my-lg-0" [formGroup]="productForm" (ngSubmit)="searchByPrice()">&ndash;&gt;-->
+<!--&lt;!&ndash;              <input class="form-control mr-sm-2" type="search" placeholder="khoảng giá 1" aria-label="Search"&ndash;&gt;-->
+<!--&lt;!&ndash;                     id="from" formControlName='from'>&ndash;&gt;-->
+<!--&lt;!&ndash;              <input class="form-control mr-sm-2" type="search" placeholder="khoảng giá 2" aria-label="Search"&ndash;&gt;-->
+<!--&lt;!&ndash;                     id="to" formControlName='to'>&ndash;&gt;-->
+<!--&lt;!&ndash;              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm theo khoảng giá</button>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </form>&ndash;&gt;-->
+<!--&lt;!&ndash;          </ul>&ndash;&gt;-->
+
+<!--&lt;!&ndash;          &lt;!&ndash;          <form class="form-inline my-2 my-lg-0" [formGroup]="productForm" (ngSubmit)="searchByName(name)">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;          &lt;!&ndash;            <input class="form-control mr-sm-2" type="search" placeholder="Search Name" aria-label="Search" [(ngModel)]="name" )]>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;          &lt;!&ndash;            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;          &lt;!&ndash;          </form>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="form-inline my-2 my-lg-0">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input class="form-control mr-sm-2" type="search" placeholder="Nhap Ten San Pham" aria-label="Search" [(ngModel)] = "name">&ndash;&gt;-->
+<!--&lt;!&ndash;            <button class="btn btn-outline-success my-2 my-sm-0"  (click)="searchByName(name)">Search</button>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </nav>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="col-3">&ndash;&gt;-->
+<!--&lt;!&ndash;      <h3 style="text-align: center">Danh sách các loại</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;      <table class="table table-striped table-dark">&ndash;&gt;-->
+<!--&lt;!&ndash;        <thead>&ndash;&gt;-->
+<!--&lt;!&ndash;        <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;          <th scope="col">STT</th>&ndash;&gt;-->
+<!--&lt;!&ndash;          <th scope="col">Category</th>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;        </thead>&ndash;&gt;-->
+<!--&lt;!&ndash;        <tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;        <tr *ngFor="let c of listCategory; index as i">&ndash;&gt;-->
+<!--&lt;!&ndash;          <td>{{i + 1}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;          <td (click)="searchByCategoryId(c.id)">{{c.name}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;      </table>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="col-9">&ndash;&gt;-->
+<!--&lt;!&ndash;      <h3 style="margin-left: 200px">Danh sách sản phẩm</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;      <table class="table table-striped table-dark">&ndash;&gt;-->
+<!--&lt;!&ndash;        <thead>&ndash;&gt;-->
+<!--&lt;!&ndash;        <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;          <th scope="col">STT</th>&ndash;&gt;-->
+<!--&lt;!&ndash;          <th scope="col">Name</th>&ndash;&gt;-->
+<!--&lt;!&ndash;          <th scope="col">Price</th>&ndash;&gt;-->
+<!--&lt;!&ndash;          <th scope="col">Category</th>&ndash;&gt;-->
+<!--&lt;!&ndash;          <th scope="col">Chỉnh sửa</th>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;        </thead>&ndash;&gt;-->
+<!--&lt;!&ndash;        <tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;        <tr *ngFor="let item of listProduct; index as i">&ndash;&gt;-->
+<!--&lt;!&ndash;          <td>{{i + 1}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;          <td>{{item.name}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;          <td>{{item.price}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;          <td>{{item.category.name}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;          <td><a [routerLink]="['/home/edit',item.id]" data-toggle="modal" data-target="#exampleModal1"> Edit</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;          <td><a [routerLink]="['/home/delete',item.id]"> Delete</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;          &lt;!&ndash;          <td><button (click)="deleteProduct(item.id)">Xóa</button></td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;      </table>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;&lt;!&ndash; Button trigger modal &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">&ndash;&gt;-->
+<!--&lt;!&ndash;  Launch demo modal&ndash;&gt;-->
+<!--&lt;!&ndash;</button>&ndash;&gt;-->
+
+
+
+
+
+
+
+
+
+

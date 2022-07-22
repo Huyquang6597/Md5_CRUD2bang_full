@@ -6,12 +6,13 @@ import {ProductListComponent} from "./product-list/product-list.component";
 import {NgModule} from "@angular/core";
 import {HomeComponent} from "../home/home.component";
 import {CommonModule} from "@angular/common";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NanavbarComponent} from "../nanavbar/nanavbar.component";
 
 
 const routes: Routes = [
   {path: 'home/create', component: ProductCreateComponent},
+
   {path: 'home', component: ProductListComponent},
   {path: 'home/edit/:id', component: ProductEditComponent},
   {path: 'home/delete/:id', component: ProductDeleteComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class ProductModule { }
