@@ -11,9 +11,13 @@ import {NanavbarComponent} from "../nanavbar/nanavbar.component";
 
 
 const routes: Routes = [
-  {path: 'home/create', component: ProductCreateComponent},
+  //{path: 'home/create', component: ProductCreateComponent},
 
-  {path: 'home', component: ProductListComponent},
+  {path: 'home', component: ProductListComponent,
+    children:[
+      {path: 'create', component: ProductCreateComponent},
+    ]
+  },
   {path: 'home/edit/:id', component: ProductEditComponent},
   {path: 'home/delete/:id', component: ProductDeleteComponent},
 ]
